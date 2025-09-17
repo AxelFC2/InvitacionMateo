@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Invitación - Mateo 18</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header blanco con logo centrado -->
+  <header class="header">
+    <img src="logo.png" alt="Logo Mateo" class="header-logo">
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <h1 class="name">Mateo</h1>
+      <p class="subtitle">¡Te invita a su Cumpleaños de 18!</p>
+      <p class="when-place"><strong>23 de Noviembre de 2025</strong> · 21:30 HS · Centro Empleados de Comercio</p>
+    </section>
+
+    <section class="countdown-section">
+      <h2>Faltan:</h2>
+      <div id="countdown" class="countdown"></div>
+    </section>
+
+    <section class="gallery">
+      <img src="foto1.jpg" alt="Foto 1" class="photo">
+      <img src="foto2.jpg" alt="Foto 2" class="photo">
+    </section>
+
+    <section class="confirm-section">
+      <a class="btn-confirmar" href="https://wa.me/5492984744472?text=Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20de%20Mateo%20%F0%9F%8E%89" target="_blank" rel="noopener">
+        ✅ Confirmar asistencia
+      </a>
+    </section>
+
+    <section class="map-section">
+      <h2>Ubicación</h2>
+      <div class="map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.201993717974!2d-67.5715972!3d-39.0790965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9609f7f55ad34dfd%3A0xf5baf396043f66c9!2sCentro%20Empleados%20De%20Comercio!5e0!3m2!1ses-419!2sar!4v1757958315351!5m2!1ses-419!2sar" 
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Music control -->
+  <div id="musicControl" title="Pausar / Reproducir">⏯</div>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
