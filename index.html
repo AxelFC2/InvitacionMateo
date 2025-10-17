@@ -4,37 +4,106 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Invitación - Mateo 18</title>
-<link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --bg-dark:#0f0f10;
+  --bg-mid:#1c1c1c;
+  --gold:#d4af37;
+  --silver:#cfcfcf;
+  --white:#ffffff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto,Arial; background:linear-gradient(180deg,var(--bg-dark),#000); color:var(--white); -webkit-font-smoothing:antialiased;}
+
+/* Header */
+.header{background:#fff;padding:36px 12px;text-align:center;border-bottom:1px solid rgba(0,0,0,0.06);}
+.header-logo{max-width:320px;height:auto;display:inline-block}
+
+/* Main container */
+.main{max-width:980px;margin:18px auto;padding:20px;}
+
+/* Fecha section */
+.fecha-section{margin:30px 0;text-align:center}
+.fecha-img{max-width:600px;width:90%;height:auto;border-radius:12px;box-shadow:0 0 20px rgba(212,175,55,0.2);background:#fff;padding:20px}
+
+/* Countdown */
+.countdown-section{margin:30px 0;text-align:center}
+.countdown-section h2{color:var(--silver);font-size:24px;margin-bottom:15px}
+.countdown{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.countdown .item{min-width:80px;padding:12px;border-radius:10px;border:2px solid rgba(212,175,55,0.18);background:rgba(255,255,255,0.03);color:var(--gold);font-weight:700;font-size:18px}
+
+/* Gallery - Single image centered */
+.gallery{display:flex;justify-content:center;margin:30px 0}
+.photo{width:100%;max-width:600px;border-radius:14px;border:3px solid rgba(255,255,255,0.06);box-shadow:0 8px 24px rgba(212,175,55,0.06);transition:transform .3s ease,box-shadow .3s ease}
+.photo:hover{transform:scale(1.02);box-shadow:0 12px 36px rgba(212,175,55,0.12)}
+
+/* Map section */
+.map-section{margin:30px 0;text-align:center}
+.map-section h2{color:var(--silver);font-size:24px;margin-bottom:15px}
+.map-wrapper{max-width:720px;margin:0 auto;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,0.04)}
+
+/* Second image */
+.gallery-second{display:flex;justify-content:center;margin:30px 0}
+
+/* Alias section */
+.alias-section{margin:30px 0;text-align:center}
+.alias-text{color:var(--silver);font-size:18px;margin-bottom:15px}
+.btn-alias{background:var(--gold);color:#000;border:2px solid var(--gold);padding:14px 28px;border-radius:50px;font-size:16px;cursor:pointer;font-weight:bold;box-shadow:0 0 15px rgba(212,175,55,0.5);transition:all 0.3s ease}
+.btn-alias:hover{background:#ffcc00;transform:scale(1.05)}
+
+/* Confirm section */
+.confirm-section{margin:40px 0;text-align:center}
+.btn{padding:14px 28px;border-radius:50px;font-size:16px;cursor:pointer;font-weight:bold;transition:all 0.3s ease;text-decoration:none;display:inline-block;border:2px solid}
+.btn-alias{background:var(--gold);color:#000;border-color:var(--gold);box-shadow:0 0 15px rgba(212,175,55,0.5)}
+.btn-alias:hover{background:#ffcc00;transform:scale(1.05)}
+.btn-confirmar{background:#000;color:var(--gold);border-color:var(--gold)}
+.btn-confirmar:hover{background:var(--gold);color:#000;transform:scale(1.05)}
+
+/* Music control */
+#musicControl{position:fixed;right:18px;bottom:18px;background:#000;color:var(--gold);border:2px solid var(--gold);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;z-index:9999;box-shadow:0 8px 20px rgba(0,0,0,0.4)}
+#musicControl:hover{transform:scale(1.05)}
+
+/* Popup */
+.popup{display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center}
+.popup-content{background:var(--gold);color:#000;padding:30px;border-radius:12px;text-align:center;width:300px;max-width:90%;box-shadow:0 0 20px rgba(212,175,55,0.4);animation:fadeIn 0.4s ease;position:relative}
+.popup-content h2{margin-bottom:10px}
+.popup-content p{font-size:20px;font-weight:bold}
+#close-popup{position:absolute;top:10px;right:20px;font-size:28px;cursor:pointer;color:#000;font-weight:bold}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+
+/* Responsive */
+@media (max-width:720px){
+  .photo{width:90%}
+  .countdown .item{min-width:70px;padding:10px;font-size:16px}
+  #musicControl{right:12px;bottom:12px;width:48px;height:48px}
+  .btn{width:80%;max-width:300px}
+}
+</style>
 </head>
 <body>
-  <!-- Header blanco con logo centrado -->
+  <!-- 1. HEADER -->
   <header class="header">
     <img src="logo.png" alt="Logo Mateo" class="header-logo">
   </header>
 
   <main class="main">
-    <section class="hero">
-      <h1 class="name">Mateo</h1>
-      <p class="subtitle">¡Te invita a su Cumpleaños de 18!</p>
-      <p class="when-place"><strong>23 de Noviembre de 2025</strong> · 21:30 HS · Centro Empleados de Comercio</p>
+    <!-- 2. FECHA Y HORA -->
+    <section class="fecha-section">
+      <img src="fecha-nueva.png" alt="23 de Noviembre 2025 - 21:30 HS" class="fecha-img">
     </section>
 
+    <!-- 3. CONTADOR -->
     <section class="countdown-section">
       <h2>Faltan:</h2>
       <div id="countdown" class="countdown"></div>
     </section>
 
+    <!-- 4. IMAGEN 1 -->
     <section class="gallery">
       <img src="foto1.jpg" alt="Foto 1" class="photo">
-      <img src="foto2.jpg" alt="Foto 2" class="photo">
     </section>
 
-    <section class="confirm-section">
-      <a class="btn-confirmar" href="https://wa.me/5492984744472?text=Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20de%20Mateo%20%F0%9F%8E%89" target="_blank" rel="noopener">
-        ✅ Confirmar asistencia
-      </a>
-    </section>
-
+    <!-- 5. MAPA -->
     <section class="map-section">
       <h2>Ubicación</h2>
       <div class="map-wrapper">
@@ -43,14 +112,107 @@
           width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
+
+    <!-- 6. IMAGEN 2 -->
+    <section class="gallery-second">
+      <img src="foto2.jpg" alt="Foto 2" class="photo">
+    </section>
+
+    <!-- 7. ALIAS -->
+    <section class="alias-section">
+      <p class="alias-text">En caso de no saber que regalarme...</p>
+      <button class="btn btn-alias" id="alias-btn">Ver ALIAS 💸</button>
+    </section>
+
+    <!-- 8. CONFIRMAR ASISTENCIA -->
+    <section class="confirm-section">
+      <a class="btn btn-confirmar" href="https://wa.me/5492984744472?text=Hola!%20Confirmo%20mi%20asistencia%20al%20cumple%20de%20Mateo%20%F0%9F%8E%89" target="_blank" rel="noopener">
+        ✅ Confirmar asistencia
+      </a>
+    </section>
   </main>
 
+  <!-- Popup de Alias -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span id="close-popup">&times;</span>
+      <h2>Alias para regalo 💸</h2>
+      <p><strong>Mateo.17.hz</strong></p>
+    </div>
+  </div>
+
   <!-- Music control -->
-  <div id="musicControl" title="Pausar / Reproducir">⏯</div>
+  <div id="musicControl" title="Pausar / Reproducir">▶</div>
   <audio id="bgMusic" loop preload="auto">
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
-  <script src="script.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  // Music control
+  const music = document.getElementById('bgMusic');
+  const control = document.getElementById('musicControl');
+  let playing = false;
+
+  music.addEventListener('loadedmetadata', ()=>{
+    try{ music.currentTime = 0; }catch(e){}
+  });
+
+  music.play().then(()=>{ playing=true; control.innerText='⏸'; }).catch(()=>{ playing=false; control.innerText='▶'; });
+
+  control.addEventListener('click', ()=>{
+    if(music.paused){ music.play(); control.innerText='⏸'; }
+    else { music.pause(); control.innerText='▶'; }
+  });
+
+  // Alias popup
+  const aliasBtn = document.getElementById('alias-btn');
+  const popup = document.getElementById('popup');
+  const closePopup = document.getElementById('close-popup');
+
+  aliasBtn.addEventListener('click', () => {
+    popup.style.display = 'flex';
+  });
+
+  closePopup.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) popup.style.display = 'none';
+  });
+
+  // Countdown
+  const countdownEl = document.getElementById('countdown');
+  const eventTime = new Date('2025-11-23T21:30:00').getTime();
+
+  function updateCountdown(){
+    const now = Date.now();
+    let diff = eventTime - now;
+    if(diff <= 0){
+      countdownEl.innerHTML = '<div class="item">🎉 Hoy es el cumple</div>';
+      clearInterval(interval);
+      return;
+    }
+    const days = Math.floor(diff / (1000*60*60*24));
+    diff -= days * (1000*60*60*24);
+    const hours = Math.floor(diff / (1000*60*60));
+    diff -= hours * (1000*60*60);
+    const minutes = Math.floor(diff / (1000*60));
+    diff -= minutes * (1000*60);
+    const seconds = Math.floor(diff / 1000);
+
+    countdownEl.innerHTML = [
+      {v: days, label: 'd'},
+      {v: hours, label: 'h'},
+      {v: minutes, label: 'm'},
+      {v: seconds, label: 's'}
+    ].map(x=>`<div class="item">${x.v}${x.label}</div>`).join('');
+  }
+
+  updateCountdown();
+  const interval = setInterval(updateCountdown,1000);
+});
+  </script>
 </body>
 </html>
